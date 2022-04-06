@@ -24,7 +24,6 @@ import javax.swing.Timer;
 
 	/*	get an attack that destroys the closest square to the miner
 	 * 	get collision and jumping
-	 * 
 	 */
 
 public class Runner extends JPanel implements ActionListener, MouseListener, KeyListener {
@@ -73,7 +72,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		t.start();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
-	
+		//e 
 	}
 	
 	
@@ -135,7 +134,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			m.setY(m.getY()-10);
 		}
 		if(m.getY() >= 155) {
-			if(arg0.getKeyCode() == 39) {
+			if(arg0.getKeyCode() == 39 || arg0.getKeyCode() == 40) {
 				m.changePicture("minerdigR.png");
 			}
 		}
@@ -146,9 +145,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		}
 		if(m.getY() <= 160) {
 			m.changePicture("miner.png");
-			
 		}
-	}//e
+	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {

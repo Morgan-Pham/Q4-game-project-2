@@ -12,7 +12,7 @@ import java.net.URL;
 public class Miner{
 	
 	private int x, y; 
-	private Image img; 	
+	private Image img;
 	private AffineTransform tx;
 	public int getX() {
 		return x;
