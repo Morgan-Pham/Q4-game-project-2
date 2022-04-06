@@ -145,7 +145,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		}
 		if(m.getY() <= 160) {
 			m.changePicture("miner.png");
-		}
+		}//does this work please
 	}
 
 	@Override
