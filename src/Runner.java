@@ -50,6 +50,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(f);
+		g.setColor(Color.yellow);
 		g.drawString("Bitcoin Miner", 290, 50);
 		g.drawString(score+"", 800, 50);
 		Font e = new Font("Times New Roman", Font.BOLD, 20);
