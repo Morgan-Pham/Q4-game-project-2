@@ -9,14 +9,14 @@ import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Coin2{
+public class Ethereum{
 	
-	private int x, y; 
+	private int x, y;
 	private Image img; 	
 	private AffineTransform tx;
 	
-	public Coin2() {
-		img = getImage("/imgs/yellowdino.gif"); //load the image for Tree
+	public Ethereum(int x , int y) {
+		img = getImage("ethereum.png"); //load the image for Tree
 		this.x = x;
 		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
@@ -33,6 +33,7 @@ public class Coin2{
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 		g2.drawImage(img, tx, null);
+		update();
 	}
 	//update the picture variable location
 	private void update() {
@@ -49,7 +50,7 @@ public class Coin2{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Coin2.class.getResource(path);
+			URL imageURL = Ethereum.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
