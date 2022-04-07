@@ -38,13 +38,13 @@ public class Ethereum{
 	//update the picture variable location
 	private void update() {
 		tx.setToTranslation(x, y);
-		tx.scale(.5, .5);
+		tx.scale(.15, .15);
 		
 	}
 
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
-		tx.scale(0.5, 0.5);
+		tx.scale(0.15, 0.15);
 	}
 
 	private Image getImage(String path) {

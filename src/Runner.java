@@ -33,16 +33,23 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Doge d = new Doge(300, 400);
 	Background b = new Background();
 	Music me = new Music("mario.wav", true);
+	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
+	ArrayList<Doge> dList = new ArrayList<Doge>();
+	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
 	private int score = 0;
 	private boolean test = true;
 	
 	public void paint(Graphics g) {
 		b.paint(g);
-		for(int i = 0; i < 10; i++) {
-			bi.paint(g);
+		for(Bitcoin b: bList) {
+			b.paint(g);
 		}
-		eth.paint(g);
-		d.paint(g);
+		for(Doge d: dList) {
+			d.paint(g);
+		}
+		for(Ethereum e: eList) {
+			e.paint(g);
+		}
 		m.paint(g);
 		if(m.getY() <= 150) {
 			m.setY(150);
@@ -83,6 +90,18 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		me.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
+		for(int i = 0; i<6; i++) {
+			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
+			bList.add(temp);
+		}
+		for(int i = 0; i<6; i++) {
+			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
+			dList.add(temp);
+		}
+		for(int i = 0; i<6; i++) {
+			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
+			eList.add(temp);
+		}
 	}
 	
 	
