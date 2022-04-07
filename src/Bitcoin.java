@@ -25,8 +25,8 @@ public class Bitcoin {
 
 	public Bitcoin(int x, int y) {
 		img = getImage("bitcoin.png"); 
-		x = (int)(Math.random()*200);
-		y = (int)(Math.random()*500);
+		this.x = x;
+		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y);
 		
