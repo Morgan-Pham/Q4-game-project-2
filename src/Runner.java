@@ -30,7 +30,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Miner m = new Miner(100, 150);
 	Bitcoin bi;
 	Ethereum e;
-	Doge d;
+	Doge d; 
 	Background b = new Background();
 	//Music me = new Music("mario.wav", true);
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
