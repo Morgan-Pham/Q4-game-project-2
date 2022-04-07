@@ -32,6 +32,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Ethereum eth = new Ethereum(400, 400);
 	Doge d = new Doge(300, 400);
 	Background b = new Background();
+	Music me = new Music("mario.wav", true);
 	private int score = 0;
 	private boolean test = true;
 	
@@ -79,9 +80,9 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		f.addKeyListener(this);
 		Timer t = new Timer(16, this);
 		t.start();
+		me.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
-		//e 
 	}
 	
 	
