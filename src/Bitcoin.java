@@ -50,7 +50,6 @@ public class Bitcoin {
 		tx.setToTranslation(x, y);
 		tx.scale(.05, .05);
 		
-		
 	}
 
 	private void init(double a, double b) {
