@@ -28,12 +28,20 @@ import javax.swing.Timer;
 
 public class Runner extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Miner m = new Miner(100, 150);
+	Bitcoin bi = new Bitcoin(200, 400);
+	Ethereum eth = new Ethereum(400, 400);
+	Doge d = new Doge(300, 400);
 	Background b = new Background();
 	private int score = 0;
 	private boolean test = true;
 	
-	public void paint(Graphics g){
+	public void paint(Graphics g) {
 		b.paint(g);
+		for(int i = 0; i < 10; i++) {
+			bi.paint(g);
+		}
+		eth.paint(g);
+		d.paint(g);
 		m.paint(g);
 		if(m.getY() <= 150) {
 			m.setY(150);
@@ -51,7 +59,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(f);
 		g.setColor(Color.yellow);
-		g.drawString("Bitcoin Miner", 290, 50);
+		g.drawString("Crypto Miner", 290, 50);
 		g.drawString(score+"", 800, 50);
 		Font e = new Font("Times New Roman", Font.BOLD, 20);
 		g.setFont(e);

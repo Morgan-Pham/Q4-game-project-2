@@ -1,24 +1,32 @@
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Coin1{
-	
-	private int x, y; 
+public class Bitcoin {
+	private int x;
+	private double y; 
 	private Image img; 	
 	private AffineTransform tx;
-	
-	public Coin1() {
-		img = getImage("/imgs/yellowdino.gif"); //load the image for Tree
-		this.x = x;
-		this.y = y;
+	public int getX() {
+		return x;
+	}
+	public double getY() {
+		return y;
+	}
+	public void setY(double newY) {
+		y = newY;
+	}
+	public void setX(int newX) {
+		x = newX;
+	}
+
+	public Bitcoin(int x, int y) {
+		img = getImage("bitcoin.png"); 
+		x = (int)(Math.random()*200);
+		y = (int)(Math.random()*500);
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y);
 		
@@ -33,23 +41,27 @@ public class Coin1{
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 		g2.drawImage(img, tx, null);
+	
+		update();
 	}
+	
 	//update the picture variable location
 	private void update() {
 		tx.setToTranslation(x, y);
-		tx.scale(.5, .5);
+		tx.scale(.05, .05);
+		
 		
 	}
 
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
-		tx.scale(0.5, 0.5);
+		tx.scale(0.05, 0.05);
 	}
 
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Coin1.class.getResource(path);
+			URL imageURL = Bitcoin.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
