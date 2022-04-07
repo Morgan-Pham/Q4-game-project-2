@@ -94,7 +94,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
 			bList.add(temp);
 		}
-		for(int i = 0; i<6; i++) {
+		for(int i = 0; i<3; i++) {
 			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
 			dList.add(temp);
 		}
