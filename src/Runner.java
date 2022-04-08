@@ -32,7 +32,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Ethereum e;
 	Doge d; 
 	Background b = new Background();
-	//Music me = new Music("mario.wav", true);
+	Music me = new Music("bgmusic.wav", false);
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
@@ -87,7 +87,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		f.addKeyListener(this);
 		Timer t = new Timer(16, this);
 		t.start();
-		//me.play();
+		me.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		for(int i = 0; i<6; i++) {
