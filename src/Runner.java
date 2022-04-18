@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,16 +33,18 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Ethereum e;
 	Doge d; 
 	Background b = new Background();
+	Background2 b2 = new Background2();
 	Music me = new Music("bgmusic.wav", false);
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
 	private int score = 0;
 	private boolean test = true;
-	//test
+	int[][] arr = new int[2048][2048];
 	
 	public void paint(Graphics g) {
 		b.paint(g);
+		b2.paint(g);
 		for(Bitcoin b: bList) {
 			b.paint(g);
 		}
@@ -91,16 +94,16 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		me.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
-		for(int i = 0; i<6; i++) {
-			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
+		for(int i = 0; i<11; i++) {
+			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*700)+200);
 			bList.add(temp);
 		}
-		for(int i = 0; i<3; i++) {
-			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
+		for(int i = 0; i<11; i++) {
+			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*700)+200);
 			dList.add(temp);
 		}
-		for(int i = 0; i<6; i++) {
-			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*250)+250);
+		for(int i = 0; i<11; i++) {
+			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+200);
 			eList.add(temp);
 		}
 	}
