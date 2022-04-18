@@ -38,6 +38,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
 	private int score = 0;
 	private boolean test = true;
+	//test
 	
 	public void paint(Graphics g) {
 		b.paint(g);
