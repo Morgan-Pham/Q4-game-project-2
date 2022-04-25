@@ -38,6 +38,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
+	ArrayList<kirby> kList = new ArrayList<kirby>();
 	private int score = 0;
 	private boolean test = true;
 	int[][] arr = new int[2048][2048];
@@ -53,6 +54,9 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		}
 		for(Ethereum e: eList) {
 			e.paint(g);
+		}
+		for(kirby k: kList) {
+			k.paint(g);
 		}
 		m.paint(g);
 		if(m.getY() <= 150) {
@@ -95,16 +99,20 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		for(int i = 0; i<11; i++) {
-			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*700)+200);
+			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			bList.add(temp);
 		}
 		for(int i = 0; i<11; i++) {
-			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*700)+200);
+			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			dList.add(temp);
 		}
 		for(int i = 0; i<11; i++) {
-			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+200);
+			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			eList.add(temp);
+		}
+		for(int i = 0; i<5; i++) {
+			kirby temp = new kirby((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
+			kList.add(temp);
 		}
 	}
 	
