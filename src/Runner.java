@@ -113,7 +113,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i<5; i++) {
 			kirby temp = new kirby((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			kList.add(temp);
-		}
+		}//test
 	}
 	
 	
