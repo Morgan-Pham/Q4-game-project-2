@@ -28,24 +28,25 @@ import javax.swing.Timer;
 	 */
 
 public class Runner extends JPanel implements ActionListener, MouseListener, KeyListener {
-	Miner m = new Miner(100, 150);
-	Bitcoin bi;
-	Ethereum e;
-	Doge d; 
-	Background b = new Background();
-	Background2 b2 = new Background2();
+	private int x = (int)(Math.random()*700)+250;
+	private int y = (int)(Math.random()*700)+250;
+	Miner m = new Miner(100, 150); 
+	Background bg = new Background();
+	Background2 bg2 = new Background2();
 	Music me = new Music("bgmusic.wav", false);
+	//Bitcoin b = new Bitcoin(x, y);
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
 	ArrayList<kirby> kList = new ArrayList<kirby>();
+	ArrayList<Trail> t = new ArrayList<Trail>();
 	private int score = 0;
 	private boolean test = true;
 	int[][] arr = new int[2048][2048];
 	
 	public void paint(Graphics g) {
-		b.paint(g);
-		b2.paint(g);
+		bg.paint(g);
+		bg2.paint(g);
 		for(Bitcoin b: bList) {
 			b.paint(g);
 		}
@@ -71,7 +72,9 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(m.getY() >= 875) {
 			m.setY(875);
 		}
-		
+		if(m.getY() >= 155) { //black trail
+			
+		}
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(f);
 		g.setColor(Color.yellow);
@@ -113,7 +116,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i<5; i++) {
 			kirby temp = new kirby((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			kList.add(temp);
-		}//test
+		}
 	}
 	
 	
