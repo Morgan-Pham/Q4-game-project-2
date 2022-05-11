@@ -54,12 +54,12 @@ public class Miner{
 	//update the picture variable location
 	private void update() {
 		tx.setToTranslation(x, y);
-		tx.scale(.2, .2);
+		tx.scale(.5, .5);
 	}
 
 	private void init(double a, double b) { //initialize
 		tx.setToTranslation(a, b);
-		tx.scale(0.5, 0.5);
+		tx.scale(.5, .5);
 	}
 
 	private Image getImage(String path) {

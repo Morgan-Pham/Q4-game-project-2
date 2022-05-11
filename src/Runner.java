@@ -28,8 +28,6 @@ import javax.swing.Timer;
 	 */
 
 public class Runner extends JPanel implements ActionListener, MouseListener, KeyListener {
-	private int x = (int)(Math.random()*700)+250;
-	private int y = (int)(Math.random()*700)+250;
 	Miner m = new Miner(100, 150); 
 	Background bg = new Background();
 	Background2 bg2 = new Background2();
@@ -39,11 +37,12 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
 	ArrayList<kirby> kList = new ArrayList<kirby>();
-	ArrayList<Trail> t = new ArrayList<Trail>();
+	ArrayList<int[]> arr = new ArrayList<int[]>();
+	int[] arr2 = new int[400];
+	Trail black = new Trail(m.getX(), m.getY());
 	private int score = 0;
-	private boolean test = true;
-	int[][] arr = new int[2048][2048];
-	
+	int time = 60;
+	Counter timeCounter = new Counter();
 	public void paint(Graphics g) {
 		bg.paint(g);
 		bg2.paint(g);
@@ -72,16 +71,29 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(m.getY() >= 875) {
 			m.setY(875);
 		}
-		if(m.getY() >= 155) { //black trail
-			
+		for(int i = 0; i < 500; i++) {
+			if(m.getY() >= 220) {
+				Rectangle a = new Rectangle(m.getX(), m.getY(), 50, 50);
+				g.fillRect((int)a.getX()+30, (int)a.getY(), 50, 50);
+				arr.
+			}
 		}
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(f);
 		g.setColor(Color.yellow);
 		g.drawString("Crypto Miner", 290, 50);
 		g.drawString(score+"", 800, 50);
-		Font e = new Font("Times New Roman", Font.BOLD, 20);
+		Font e = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(e);
+		g.drawString(String.valueOf(time), 45, 50);
+		if(timeCounter.getY()>=40) {
+			timeCounter.setY(0);
+			time--;
+		}
+		Font y = new Font("Times New Roman", Font.BOLD, 30);
+		g.setFont(y);
+		g.setColor(Color.yellow);
+		timeCounter.setY(timeCounter.getY()+1);
 	}
 	
 	public static void main(String[] arg) {
