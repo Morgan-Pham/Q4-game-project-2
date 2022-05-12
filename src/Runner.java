@@ -32,20 +32,23 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Background bg = new Background();
 	Background2 bg2 = new Background2();
 	Music me = new Music("bgmusic.wav", false);
-	//Bitcoin b = new Bitcoin(x, y);
+	Bitcoin b;
+	Doge d;
+	Ethereum e;
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
 	ArrayList<kirby> kList = new ArrayList<kirby>();
-	ArrayList<int[]> arr = new ArrayList<int[]>();
-	int[] arr2 = new int[400];
-	Trail black = new Trail(m.getX(), m.getY());
+	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
 	int time = 60;
 	Counter timeCounter = new Counter();
 	public void paint(Graphics g) {
 		bg.paint(g);
 		bg2.paint(g);
+		for(int i = 0; i < arr.size(); i++) {
+	    	g.fillRect((int)arr.get(i).getX(), (int)arr.get(i).getY(), 50, 50);
+	    }
 		for(Bitcoin b: bList) {
 			b.paint(g);
 		}
@@ -71,12 +74,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(m.getY() >= 875) {
 			m.setY(875);
 		}
-		for(int i = 0; i < 500; i++) {
-			if(m.getY() >= 220) {
-				Rectangle a = new Rectangle(m.getX(), m.getY(), 50, 50);
-				g.fillRect((int)a.getX()+30, (int)a.getY(), 50, 50);
-			}
-		}
+	    
+
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(f);
 		g.setColor(Color.yellow);
@@ -180,26 +179,35 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			m.setX(m.getX()-10);
 		}
 		
-		if(arg0.getKeyCode() == 40) {
+		if(arg0.getKeyCode() == 40) {  //down
 			if(m.getY() >= 150) {
 				m.setY(m.getY()+10);
 			}
 		}
-		if(arg0.getKeyCode() == 38) {
+		if(arg0.getKeyCode() == 38) {   //up
 			m.setY(m.getY()-10);
-		}
-		if(m.getY() >= 155) {
-			if(arg0.getKeyCode() == 39 || arg0.getKeyCode() == 40) {
-				m.changePicture("minerdigR.png");
+			if(m.getY() >= 220) { //if underground while going up
+				arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 			}
 		}
-		if(m.getY() >= 155) {
-			if(arg0.getKeyCode() == 37) {
+		if(m.getY() >= 170) {
+			if(arg0.getKeyCode() == 39 || arg0.getKeyCode() == 40) {  //going right 
+				m.changePicture("minerdigR.png");
+				if(m.getY() >= 220) {
+					arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+				}
+			}
+		}
+		if(m.getY() >= 170) {
+			if(arg0.getKeyCode() == 37) {    //underground and left
 				m.changePicture("minerdigL.png");
+				if(m.getY() >= 220) {
+					arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+				}
 			}
 		}
 		if(m.getY() <= 160) {
-			m.changePicture("miner.png");
+			m.changePicture("miner.png");  //when above ground
 		}
 	}
 
