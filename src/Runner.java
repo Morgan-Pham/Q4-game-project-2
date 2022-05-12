@@ -75,7 +75,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			if(m.getY() >= 220) {
 				Rectangle a = new Rectangle(m.getX(), m.getY(), 50, 50);
 				g.fillRect((int)a.getX()+30, (int)a.getY(), 50, 50);
-				arr.
 			}
 		}
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
