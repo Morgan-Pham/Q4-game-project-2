@@ -38,7 +38,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
-	ArrayList<kirby> kList = new ArrayList<kirby>();
+	kirby k = new kirby();
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
 	int time = 60;
@@ -58,9 +58,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(Ethereum e: eList) {
 			e.paint(g);
 		}
-		for(kirby k: kList) {
-			k.paint(g);
-		}
+		k.paint(g);
 		m.paint(g);
 		if(m.getY() <= 150) {
 			m.setY(150);
@@ -122,10 +120,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i<11; i++) {
 			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			eList.add(temp);
-		}
-		for(int i = 0; i<5; i++) {
-			kirby temp = new kirby((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
-			kList.add(temp);
 		}
 	}
 	
@@ -207,7 +201,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			}
 		}
 		if(m.getY() <= 160) {
-			m.changePicture("miner.png");  //when above ground
+			m.changePicture("mineridle4.png");  //when above ground
 		}
 	}
 
