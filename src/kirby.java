@@ -48,10 +48,10 @@ public class kirby{
 	
 	
 	
-	public kirby() {
+	public kirby(int x, int y) {
 		img = getImage("kirbyK.png"); //load the image for Tree
-		x = (int)(Math.random()*800);
-		y = 420;
+		this.x = x;
+		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y); 				//initialize the location of the image
 					 				//use your variables
