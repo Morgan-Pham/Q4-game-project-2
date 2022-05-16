@@ -9,8 +9,8 @@ public class kirby{
 	
 	//add location attributes
 	public int x, y; //position of the bird
-	private int speedX = 11;
-	private int speedY = 11;
+	private int speedX = 3;
+	private int speedY = 3;
 	private int score = 0;
 	private Image img; 	
 	private AffineTransform tx;
@@ -69,17 +69,17 @@ public class kirby{
 		x += speedX;
 		y += speedY;
 		
-		if(x > 900) {
+		if(x > 830) {
 			speedX *= -1;
 	
 		}
-		if (y >= 1000) {
+		if (y >= 850) {
 			speedY *= -1;
 		}
 		if(x <= 0) {
 			speedX *= -1;
 		}
-		if(y <= 0) {
+		if(y <= 170) {
 			speedY *= -1;
 		}
 		

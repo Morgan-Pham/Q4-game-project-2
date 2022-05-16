@@ -7,7 +7,7 @@ import java.net.URL;
 
 public class Bitcoin {
 	private int x;
-	private double y; 
+	private int y; 
 	private Image img; 	
 	private AffineTransform tx;
 	public int getX() {
@@ -16,7 +16,7 @@ public class Bitcoin {
 	public double getY() {
 		return y;
 	}
-	public void setY(double newY) {
+	public void setY(int newY) {
 		y = newY;
 	}
 	public void setX(int newX) {

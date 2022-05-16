@@ -17,6 +17,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -38,7 +39,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
-	kirby k = new kirby();
+	kirby[] k = new kirby[2];
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
 	int time = 60;
@@ -51,14 +52,41 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	    }
 		for(Bitcoin b: bList) {
 			b.paint(g);
+			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
+		    Rectangle rd = new Rectangle(b.getX(), (int) b.getY(), 60, 60);
+		    if(rm.intersects(rd)==true) {
+		    	b.setX(1000);
+			    score+=100;
+		    }
 		}
+		
 		for(Doge d: dList) {
 			d.paint(g);
+			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
+			Rectangle rd = new Rectangle(d.getX(), (int) d.getY(), 60, 60);
+			if(rm.intersects(rd)==true) {
+				d.setX(1000);
+			    score+=20;
+			}
 		}
 		for(Ethereum e: eList) {
 			e.paint(g);
+			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
+			Rectangle re = new Rectangle(e.getX(), (int) e.getY(), 60, 60); 
+			if(rm.intersects(re)==true) {
+				e.setX(1000);
+				score+=70;
+			}
 		}
-		k.paint(g);
+		for(int i = 0; i < k.length; i++) {
+			k[i].paint(g);
+			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
+			Rectangle re = new Rectangle(k.length, (int) k.length, 60, 60); 
+			if(rm.intersects(re)==true) {
+				e.setX(1000);
+				score+=70;
+			}
+		}
 		m.paint(g);
 		if(m.getY() <= 150) {
 			m.setY(150);
@@ -78,7 +106,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setFont(f);
 		g.setColor(Color.yellow);
 		g.drawString("Crypto Miner", 290, 50);
-		g.drawString(score+"", 800, 50);
+		g.drawString(score+"", 750, 50);
 		Font e = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(e);
 		g.drawString(String.valueOf(time), 45, 50);
@@ -120,6 +148,9 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i<11; i++) {
 			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			eList.add(temp);
+		}
+		for(int i = 0; i < k.length; i++) {
+			k[i] = new kirby();
 		}
 	}
 	

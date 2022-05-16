@@ -11,9 +11,22 @@ import java.net.URL;
 
 public class Ethereum{
 	
-	private int x, y;
+	private int x;
+	private int y;
 	private Image img; 	
 	private AffineTransform tx;
+	public int getX() {
+		return x;
+	}
+	public double getY() {
+		return y;
+	}
+	public void setY(int newY) {
+		y = newY;
+	}
+	public void setX(int newX) {
+		x = newX;
+	}
 	
 	public Ethereum(int x , int y) {
 		img = getImage("ethereum.png"); //load the image for Tree
