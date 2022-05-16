@@ -43,7 +43,9 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
 	int time = 60;
+	int time2 = 10;
 	Counter timeCounter = new Counter();
+	Counter timeCounter2 = new Counter();
 	public void paint(Graphics g) {
 		bg.paint(g);
 		bg2.paint(g);
@@ -83,7 +85,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
 			Rectangle re = new Rectangle(k.getX(), (int) k.getY(), 60, 60); 
 			if(rm.intersects(re)==true) {
-				score-=50;
+				score-=200;
 				k.setY((int)(Math.random()*500)+250);
 				k.setX((int)(Math.random()*800)+1);
 			}
@@ -120,7 +122,17 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
 	}
-	
+	/*if(time == 0) {
+		Font y = new Font("Times New Roman", Font.BOLD, 30);
+		g.setFont(y);
+		g.drawString("congratulations, check your score!", 260, 130);
+		g.drawString("game will now self-destruct", 290, 200);
+		g.drawString(String.valueOf(time2), 100, 50);
+		if(timeCounter2.getY()>=40) {
+			timeCounter2.setY(0);
+			time2--;
+		}
+	}*/
 
 	public static void main(String[] arg) {
 		Runner r = new Runner();
@@ -151,7 +163,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			eList.add(temp);
 		}
-		for(int i = 0; i<2; i++) {
+		for(int i = 0; i<3; i++) {
 			kirby temp = new kirby((int)(Math.random()*800)+1, (int)(Math.random()*500)+250);
 			kList.add(temp);
 		}
