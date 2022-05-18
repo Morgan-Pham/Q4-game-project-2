@@ -32,7 +32,10 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Miner m = new Miner(100, 150); 
 	Background bg = new Background();
 	Background2 bg2 = new Background2();
-	Music me = new Music("bgmusic.wav", false);
+	Music me = new Music("mario.wav", false);
+	Music co = new Music("coin.wav", false);
+	Music dig = new Music("dig.wav", false);
+	Music yell = new Music("scream.wav", false);
 	Bitcoin b;
 	Doge d;
 	Ethereum e;
@@ -57,6 +60,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
 		    Rectangle rd = new Rectangle(b.getX(), (int) b.getY(), 60, 60);
 		    if(rm.intersects(rd)==true) {
+		    	co.play();
 		    	b.setX(1000);
 			    score+=100;
 		    }
@@ -67,6 +71,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
 			Rectangle rd = new Rectangle(d.getX(), (int) d.getY(), 60, 60);
 			if(rm.intersects(rd)==true) {
+				co.play();
 				d.setX(1000);
 			    score+=20;
 			}
@@ -76,6 +81,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
 			Rectangle re = new Rectangle(e.getX(), (int) e.getY(), 60, 60); 
 			if(rm.intersects(re)==true) {
+				co.play();
 				e.setX(1000);
 				score+=70;
 			}
@@ -85,6 +91,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
 			Rectangle re = new Rectangle(k.getX(), (int) k.getY(), 60, 60); 
 			if(rm.intersects(re)==true) {
+				yell.play();
 				score-=200;
 				k.setY((int)(Math.random()*500)+250);
 				k.setX((int)(Math.random()*800)+1);
@@ -222,12 +229,14 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(arg0.getKeyCode() == 40) {  //down
 			if(m.getY() >= 150) {
 				m.setY(m.getY()+10);
+				dig.play();
 			}
 		}
 		if(arg0.getKeyCode() == 38) {   //up
 			m.setY(m.getY()-10);
 			if(m.getY() >= 220) { //if underground while going up
 				arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+				dig.play();
 			}
 		}
 		if(m.getY() >= 170) {
@@ -235,6 +244,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				m.changePicture("minerdigR.png");
 				if(m.getY() >= 220) {
 					arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+					dig.play();
 				}
 			}
 		}
@@ -243,6 +253,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				m.changePicture("minerdigL.png");
 				if(m.getY() >= 220) {
 					arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+					dig.play();
 				}
 			}
 		}
