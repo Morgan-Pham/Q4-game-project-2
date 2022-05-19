@@ -50,6 +50,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Counter timeCounter = new Counter();
 	Counter timeCounter2 = new Counter();
 	public void paint(Graphics g) {
+		me.play();
 		bg.paint(g);
 		bg2.paint(g);
 		for(int i = 0; i < arr.size(); i++) {
@@ -128,7 +129,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setFont(y);
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
-		me.play();
 	}
 	/*if(time == 0) {
 		Font y = new Font("Times New Roman", Font.BOLD, 30);
