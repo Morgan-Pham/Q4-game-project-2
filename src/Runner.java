@@ -128,6 +128,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setFont(y);
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
+		me.play();
 	}
 	/*if(time == 0) {
 		Font y = new Font("Times New Roman", Font.BOLD, 30);
@@ -155,7 +156,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		f.addKeyListener(this);
 		Timer t = new Timer(16, this);
 		t.start();
-		me.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		for(int i = 0; i<11; i++) {
