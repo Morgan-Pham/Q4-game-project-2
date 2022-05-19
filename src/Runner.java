@@ -32,7 +32,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Miner m = new Miner(100, 150); 
 	Background bg = new Background();
 	Background2 bg2 = new Background2();
-	Music me = new Music("mario.wav", false);
+	Music me = new Music("mariobest.wav", true);
 	Music co = new Music("coin.wav", false);
 	Music dig = new Music("dig.wav", false);
 	Music yell = new Music("scream.wav", false);
@@ -50,7 +50,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Counter timeCounter = new Counter();
 	Counter timeCounter2 = new Counter();
 	public void paint(Graphics g) {
-		me.play();
 		bg.paint(g);
 		bg2.paint(g);
 		for(int i = 0; i < arr.size(); i++) {
@@ -156,6 +155,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		f.addKeyListener(this);
 		Timer t = new Timer(16, this);
 		t.start();
+		me.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		for(int i = 0; i<11; i++) {
