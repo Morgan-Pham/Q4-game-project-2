@@ -32,7 +32,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Miner m = new Miner(100, 150); 
 	Background bg = new Background();
 	Background2 bg2 = new Background2();
-	Music me = new Music("mariobest.wav", true);
+	Music ms = new Music("mariobest.wav", true);
 	Music co = new Music("coin.wav", false);
 	Music dig = new Music("dig.wav", false);
 	Music yell = new Music("scream.wav", false);
@@ -47,10 +47,12 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	private int score = 0;
 	int time = 60;
 	int time2 = 10;
+	private int totalCount = 0;
+	private int coinCount = 0;
 	Counter timeCounter = new Counter();
 	Counter timeCounter2 = new Counter();
 	public void paint(Graphics g) {
-		me.play();
+		ms.play();
 		bg.paint(g);
 		bg2.paint(g);
 		for(int i = 0; i < arr.size(); i++) {
@@ -64,6 +66,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		    	co.play();
 		    	b.setX(1000);
 			    score+=100;
+			    coinCount--;
 		    }
 		}
 		
@@ -75,6 +78,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				co.play();
 				d.setX(1000);
 			    score+=20;
+			    coinCount--;
 			}
 		}
 		for(Ethereum e: eList) {
@@ -85,6 +89,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				co.play();
 				e.setX(1000);
 				score+=70;
+				coinCount--;
 			}
 		}
 		for(kirby k: kList) {
@@ -97,6 +102,16 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				k.setY((int)(Math.random()*500)+250);
 				k.setX((int)(Math.random()*800)+1);
 			}
+			if(time == 0) {
+				k.setSpeedX(0);
+				k.setSpeedY(0);
+			}
+		}
+		if(coinCount == 0) {
+			Font y = new Font("Times New Roman", Font.BOLD, 30);
+			g.setFont(y);
+			g.setColor(Color.yellow);
+			g.drawString("YOU WIN, SEE YOUR SCORE", 260, 130);
 		}
 		m.paint(g);
 		if(m.getY() <= 150) {
@@ -161,19 +176,23 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i<11; i++) {
 			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			bList.add(temp);
+			totalCount++;
 		}
 		for(int i = 0; i<11; i++) {
 			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			dList.add(temp);
+			totalCount++;
 		}
 		for(int i = 0; i<11; i++) {
 			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
 			eList.add(temp);
+			totalCount++;
 		}
 		for(int i = 0; i<3; i++) {
 			kirby temp = new kirby((int)(Math.random()*800)+1, (int)(Math.random()*500)+250);
 			kList.add(temp);
 		}
+		coinCount += totalCount;
 	}
 	
 	

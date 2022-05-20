@@ -74,7 +74,5 @@ public class Music implements Runnable  {
 	public void run() {
 		 audioClip.start();
 	}
- 
- 
 }
 
