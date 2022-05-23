@@ -32,7 +32,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Miner m = new Miner(100, 150); 
 	Background bg = new Background();
 	Background2 bg2 = new Background2();
-	Music ms = new Music("mariobest.wav", true);
+	Music ms = new Music("digdug.wav", true);
 	Music co = new Music("coin.wav", false);
 	Music dig = new Music("dig.wav", false);
 	Music yell = new Music("scream.wav", false);
@@ -52,7 +52,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Counter timeCounter = new Counter();
 	Counter timeCounter2 = new Counter();
 	public void paint(Graphics g) {
-		ms.play();
 		bg.paint(g);
 		bg2.paint(g);
 		for(int i = 0; i < arr.size(); i++) {
@@ -69,7 +68,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			    coinCount--;
 		    }
 		}
-		
 		for(Doge d: dList) {
 			d.paint(g);
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
@@ -101,10 +99,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				score-=200;
 				k.setY((int)(Math.random()*500)+250);
 				k.setX((int)(Math.random()*800)+1);
-			}
-			if(time == 0) {
-				k.setSpeedX(0);
-				k.setSpeedY(0);
 			}
 		}
 		if(coinCount == 0) {
@@ -171,6 +165,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		f.addKeyListener(this);
 		Timer t = new Timer(16, this);
 		t.start();
+		ms.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		for(int i = 0; i<11; i++) {
