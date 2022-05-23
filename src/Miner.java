@@ -12,6 +12,8 @@ import java.net.URL;
 public class Miner{
 	
 	private int x, y; 
+	private int speed;
+	private int sped;
 	private Image img;
 	private AffineTransform tx;
 	public int getX() {
@@ -26,7 +28,18 @@ public class Miner{
 	public void setX(int newX) {
 		x = newX;
 	}
-	
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int newSpeed) {
+		speed = newSpeed;
+	}
+	public int getSped() {
+		return sped;
+	}
+	public void setSped(int newSped) {
+		sped = newSped;
+	}
 
 	public Miner(int x, int y) {
 		img = getImage("mineridle3.png"); //load the image for Tree
@@ -48,6 +61,8 @@ public class Miner{
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 		g2.drawImage(img, tx, null);
+		x += speed;
+		y += sped;
 		update();
 	}
 	
