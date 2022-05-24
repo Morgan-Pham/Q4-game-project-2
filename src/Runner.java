@@ -45,8 +45,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<kirby> kList = new ArrayList<kirby>();
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
-	int time = 60;
-	int time2 = 10;
+	private int time = 60;
+	private int timeKeep = 10;
 	private int totalCount = 0;
 	private int coinCount = 0;
 	Counter timeCounter = new Counter();
@@ -106,6 +106,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			g.setFont(y);
 			g.setColor(Color.yellow);
 			g.drawString("YOU WIN, SEE YOUR SCORE", 260, 130);
+			g.drawString("GAME WILL SELF DESTRUCT IN 10", 240, 230);
 		}
 		m.paint(g);
 		if(m.getY() <= 150) {
@@ -138,6 +139,12 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setFont(y);
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
+		if(coinCount == 0) {
+			timeKeep = time;
+			if(time < timeKeep-10) {
+				System.exit(0);
+			}
+		}
 	}
 	/*if(time == 0) {
 		Font y = new Font("Times New Roman", Font.BOLD, 30);
