@@ -57,6 +57,15 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i < arr.size(); i++) {
 	    	g.fillRect((int)arr.get(i).getX(), (int)arr.get(i).getY(), 50, 50);
 	    }
+		if(m.getY() > 220) {
+			if(m.getSpeed() > 0 || m.getSpeed() < 0) {
+				arr.add(new Rectangle(m.getX()+10, m.getY(), 50, 50));
+				System.out.println(m.getX() + " " + m.getY());
+			}
+			if(m.getSped() > 0 || m.getSped() < 0) {
+				arr.add(new Rectangle(m.getX()+10, m.getY(), 50, 50));
+			}
+		}
 		for(Bitcoin b: bList) {
 			b.paint(g);
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
@@ -240,23 +249,27 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		// TODO Auto-generated method stub
 		System.out.println(arg0.getKeyCode());
 		if(arg0.getKeyCode() == 39) { //right
-			m.setX(m.getX()+10);
+			//m.setX(m.getX()+10);
+			m.setSpeed(+5);
 		}
 		
 		if(arg0.getKeyCode() == 37) { //left
-			m.setX(m.getX()-10);
+			//m.setX(m.getX()-10);
+			m.setSpeed(-5);
 		}
 		
 		if(arg0.getKeyCode() == 40) {  //down
 			if(m.getY() >= 150) {
-				m.setY(m.getY()+10);
+				//m.setY(m.getY()+10);
+				m.setSped(+5);
 				dig.play();
 			}
 		}
 		if(arg0.getKeyCode() == 38) {   //up
-			m.setY(m.getY()-10);
+			//m.setY(m.getY()-10);
+			m.setSped(-5);
 			if(m.getY() >= 220) { //if underground while going up
-				arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+				//arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 				dig.play();
 			}
 		}
@@ -264,7 +277,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			if(arg0.getKeyCode() == 39 || arg0.getKeyCode() == 40) {  //going right 
 				m.changePicture("minerdigR.png");
 				if(m.getY() >= 220) {
-					arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+					//arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 					dig.play();
 				}
 			}
@@ -273,7 +286,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			if(arg0.getKeyCode() == 37) {    //underground and left
 				m.changePicture("minerdigL.png");
 				if(m.getY() >= 220) {
-					arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
+					//arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 					dig.play();
 				}
 			}
@@ -286,7 +299,18 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		if(arg0.getKeyCode() == 39) {
+			m.setSpeed(0);
+		}
+		if(arg0.getKeyCode() == 37) {
+			m.setSpeed(0);
+		}
+		if(arg0.getKeyCode() == 38) {
+			m.setSped(0);
+		}
+		if(arg0.getKeyCode() == 40) {
+			m.setSped(0);
+		}
 
 	}
 
