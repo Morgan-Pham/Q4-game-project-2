@@ -46,7 +46,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
 	private int time = 60;
-	private int timeKeep = 10;
+	private int timeKeep = 0;
+	private int timer = 0;
 	private int totalCount = 0;
 	private int coinCount = 0;
 	Counter timeCounter = new Counter();
@@ -60,7 +61,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(m.getY() > 220) {
 			if(m.getSpeed() > 0 || m.getSpeed() < 0) {
 				arr.add(new Rectangle(m.getX()+10, m.getY(), 50, 50));
-				System.out.println(m.getX() + " " + m.getY());
 			}
 			if(m.getSped() > 0 || m.getSped() < 0) {
 				arr.add(new Rectangle(m.getX()+10, m.getY(), 50, 50));
@@ -115,7 +115,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			g.setFont(y);
 			g.setColor(Color.yellow);
 			g.drawString("YOU WIN, SEE YOUR SCORE", 260, 130);
-			g.drawString("GAME WILL SELF DESTRUCT IN 10", 240, 230);
 		}
 		m.paint(g);
 		if(m.getY() <= 150) {
@@ -144,16 +143,18 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			timeCounter.setY(0);
 			time--;
 		}
+		if(coinCount == 0) {
+			timeKeep = time-10;
+			System.out.println(timer);
+		}
+		timer = timeKeep;
+		if(time == timer) {
+			System.exit(0);
+		}
 		Font y = new Font("Times New Roman", Font.BOLD, 30);
 		g.setFont(y);
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
-		if(coinCount == 0) {
-			timeKeep = time;
-			if(time < timeKeep-10) {
-				System.exit(0);
-			}
-		}
 	}
 	/*if(time == 0) {
 		Font y = new Font("Times New Roman", Font.BOLD, 30);
