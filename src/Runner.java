@@ -168,7 +168,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			m.setSpeed(0);
 			m.setSped(0);
 			g.setColor(Color.red);
-			g.drawString("GAME OVER", 210, 130);
+			g.drawString("GAME OVER, SEE YOUR SCORE", 210, 130);
 			g.drawString("CLOSE GAME TO RESTART", 210, 160);
 		}
 	}
