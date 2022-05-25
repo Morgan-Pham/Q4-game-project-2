@@ -55,6 +55,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	public void paint(Graphics g) {
 		bg.paint(g);
 		bg2.paint(g);
+		
+		//CREATES A BLACK TRAIL BEHIND THE MINER
 		for(int i = 0; i < arr.size(); i++) {
 	    	g.fillRect((int)arr.get(i).getX(), (int)arr.get(i).getY(), 50, 50);
 	    }
@@ -66,6 +68,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				arr.add(new Rectangle(m.getX()+10, m.getY(), 50, 50));
 			}
 		}
+		
+		//PAINTS ALL OF THE COIN OBJECTS AND COUNTS THE SCORE
 		for(Bitcoin b: bList) {
 			b.paint(g);
 			Rectangle rm = new Rectangle(m.getX()+5, m.getY(), 85, 60);
@@ -110,12 +114,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				k.setX((int)(Math.random()*800)+1);
 			}
 		}
-		if(coinCount == 0) {
-			Font y = new Font("Times New Roman", Font.BOLD, 30);
-			g.setFont(y);
-			g.setColor(Color.yellow);
-			g.drawString("YOU WIN, SEE YOUR SCORE", 260, 130);
-		}
+		//MINER MAP COLLISION
 		m.paint(g);
 		if(m.getY() <= 150) {
 			m.setY(150);
@@ -129,13 +128,22 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(m.getY() >= 875) {
 			m.setY(875);
 		}
-	    
-
+		
+		//ALL OF THE TEXT/STRINGS FOR THE PROJECT
 		Font f = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(f);
 		g.setColor(Color.yellow);
 		g.drawString("Crypto Miner", 290, 50);
 		g.drawString(score+"", 750, 50);
+		if(coinCount == 0) {
+			Font y = new Font("Times New Roman", Font.BOLD, 30);
+			g.setFont(y);
+			g.setColor(Color.yellow);
+			g.drawString("YOU WIN, SEE YOUR SCORE", 400, 130);
+			g.drawString("CLOSE GAME TO PLAY AGAIN", 400, 180);
+		}
+		
+		//TIMER
 		Font e = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(e);
 		g.drawString(String.valueOf(time), 45, 50);
@@ -143,30 +151,11 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			timeCounter.setY(0);
 			time--;
 		}
-		if(coinCount == 0) {
-			timeKeep = time-10;
-			System.out.println(timer);
-		}
-		timer = timeKeep;
-		if(time == timer) {
-			System.exit(0);
-		}
 		Font y = new Font("Times New Roman", Font.BOLD, 30);
 		g.setFont(y);
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
 	}
-	/*if(time == 0) {
-		Font y = new Font("Times New Roman", Font.BOLD, 30);
-		g.setFont(y);
-		g.drawString("congratulations, check your score!", 260, 130);
-		g.drawString("game will now self-destruct", 290, 200);
-		g.drawString(String.valueOf(time2), 100, 50);
-		if(timeCounter2.getY()>=40) {
-			timeCounter2.setY(0);
-			time2--;
-		}
-	}*/
 
 	public static void main(String[] arg) {
 		Runner r = new Runner();
@@ -185,18 +174,20 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		ms.play();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
+		
+		//CREATION OF THE COIN OBJECTS TO BE PAINTED
 		for(int i = 0; i<11; i++) {
-			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
+			Bitcoin temp = new Bitcoin((int)(Math.random()*800)+1, (int)(Math.random()*600)+250);
 			bList.add(temp);
 			totalCount++;
 		}
 		for(int i = 0; i<11; i++) {
-			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
+			Doge temp = new Doge((int)(Math.random()*800)+1, (int)(Math.random()*600)+250);
 			dList.add(temp);
 			totalCount++;
 		}
 		for(int i = 0; i<11; i++) {
-			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*700)+250);
+			Ethereum temp = new Ethereum((int)(Math.random()*800)+1, (int)(Math.random()*600)+250);
 			eList.add(temp);
 			totalCount++;
 		}
@@ -249,28 +240,27 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println(arg0.getKeyCode());
+		
+		//MINER MOVEMENT CONTROLS
+		//MINER IMAGE CHANGES DEPENDING IF HE IS UNDEGROUND OR NOT
+		//AND IF HE IS GOING RIGHT OR LEFT
 		if(arg0.getKeyCode() == 39) { //right
-			//m.setX(m.getX()+10);
 			m.setSpeed(+5);
 		}
 		
 		if(arg0.getKeyCode() == 37) { //left
-			//m.setX(m.getX()-10);
 			m.setSpeed(-5);
 		}
 		
 		if(arg0.getKeyCode() == 40) {  //down
 			if(m.getY() >= 150) {
-				//m.setY(m.getY()+10);
 				m.setSped(+5);
 				dig.play();
 			}
 		}
 		if(arg0.getKeyCode() == 38) {   //up
-			//m.setY(m.getY()-10);
 			m.setSped(-5);
 			if(m.getY() >= 220) { //if underground while going up
-				//arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 				dig.play();
 			}
 		}
@@ -278,7 +268,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			if(arg0.getKeyCode() == 39 || arg0.getKeyCode() == 40) {  //going right 
 				m.changePicture("minerdigR.png");
 				if(m.getY() >= 220) {
-					//arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 					dig.play();
 				}
 			}
@@ -287,7 +276,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			if(arg0.getKeyCode() == 37) {    //underground and left
 				m.changePicture("minerdigL.png");
 				if(m.getY() >= 220) {
-					//arr.add(new Rectangle(m.getX()+30, m.getY(), 50, 50));
 					dig.play();
 				}
 			}
@@ -300,6 +288,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		
+		//MINER MOVEMENT SPEED
 		if(arg0.getKeyCode() == 39) {
 			m.setSpeed(0);
 		}
