@@ -41,7 +41,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<kirby> kList = new ArrayList<kirby>();
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
-	private int time = 60;
+	private int time = 5;
 	private int totalCount = 0;
 	private int coinCount = 0;
 	Counter timeCounter = new Counter();
@@ -154,7 +154,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		Font e = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(e);
 		g.drawString(String.valueOf(time), 45, 50);
-		if(timeCounter.getY()>=40) {
+		if(timeCounter.getY()>=40 && time != 0) {
 			timeCounter.setY(0);
 			time--;
 		}
