@@ -34,7 +34,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Background2 bg2 = new Background2();
 	Music ms = new Music("digdug.wav", true);
 	Music co = new Music("coin.wav", false);
-	Music dig = new Music("dig.wav", false);
 	Music yell = new Music("scream.wav", false);
 	Bitcoin b;
 	Doge d;
@@ -46,12 +45,9 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
 	private int time = 60;
-	private int timeKeep = 0;
-	private int timer = 0;
 	private int totalCount = 0;
 	private int coinCount = 0;
 	Counter timeCounter = new Counter();
-	Counter timeCounter2 = new Counter();
 	public void paint(Graphics g) {
 		bg.paint(g);
 		bg2.paint(g);
@@ -255,20 +251,17 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		if(arg0.getKeyCode() == 40) {  //down
 			if(m.getY() >= 150) {
 				m.setSped(+5);
-				dig.play();
 			}
 		}
 		if(arg0.getKeyCode() == 38) {   //up
 			m.setSped(-5);
 			if(m.getY() >= 220) { //if underground while going up
-				dig.play();
 			}
 		}
 		if(m.getY() >= 170) {
 			if(arg0.getKeyCode() == 39 || arg0.getKeyCode() == 40) {  //going right 
 				m.changePicture("minerdigR.png");
 				if(m.getY() >= 220) {
-					dig.play();
 				}
 			}
 		}
@@ -276,7 +269,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			if(arg0.getKeyCode() == 37) {    //underground and left
 				m.changePicture("minerdigL.png");
 				if(m.getY() >= 220) {
-					dig.play();
 				}
 			}
 		}
