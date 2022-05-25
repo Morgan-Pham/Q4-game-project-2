@@ -108,6 +108,14 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 				k.setY((int)(Math.random()*500)+250);
 				k.setX((int)(Math.random()*800)+1);
 			}
+			if(time == 0) {
+				k.setSpeedX(0);
+				k.setSpeedY(0);
+			}
+			if(coinCount == 0) {
+				k.setSpeedX(0);
+				k.setSpeedY(0);
+			}
 		}
 		//MINER MAP COLLISION
 		m.paint(g);
@@ -130,7 +138,11 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setColor(Color.yellow);
 		g.drawString("Crypto Miner", 290, 50);
 		g.drawString(score+"", 750, 50);
+		
+		//WINNING SCENE
 		if(coinCount == 0) {
+			m.setSpeed(0);
+			m.setSped(0);
 			Font y = new Font("Times New Roman", Font.BOLD, 30);
 			g.setFont(y);
 			g.setColor(Color.yellow);
@@ -150,6 +162,15 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setFont(y);
 		g.setColor(Color.yellow);
 		timeCounter.setY(timeCounter.getY()+1);
+		
+		//LOSING SCENE
+		if(time <= 0) {
+			m.setSpeed(0);
+			m.setSped(0);
+			g.setColor(Color.red);
+			g.drawString("GAME OVER", 210, 130);
+			g.drawString("CLOSE GAME TO RESTART", 210, 160);
+		}
 	}
 
 	public static void main(String[] arg) {
