@@ -35,9 +35,6 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	Music ms = new Music("digdug.wav", true);
 	Music co = new Music("coin.wav", false);
 	Music yell = new Music("scream.wav", false);
-	Bitcoin b;
-	Doge d;
-	Ethereum e;
 	ArrayList<Bitcoin> bList = new ArrayList<Bitcoin>();
 	ArrayList<Doge> dList = new ArrayList<Doge>();
 	ArrayList<Ethereum> eList = new ArrayList<Ethereum>();
@@ -49,6 +46,8 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	private int coinCount = 0;
 	Counter timeCounter = new Counter();
 	public void paint(Graphics g) {
+		
+		//BACKGROUND
 		bg.paint(g);
 		bg2.paint(g);
 		
