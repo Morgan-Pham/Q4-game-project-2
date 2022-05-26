@@ -41,7 +41,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<kirby> kList = new ArrayList<kirby>();
 	ArrayList<Rectangle> arr = new ArrayList<Rectangle>();
 	private int score = 0;
-	private int time = 5;
+	private int time = 60;
 	private int totalCount = 0;
 	private int coinCount = 0;
 	Counter timeCounter = new Counter();
