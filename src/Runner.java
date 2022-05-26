@@ -150,7 +150,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 			g.drawString("CLOSE GAME TO PLAY AGAIN", 400, 180);
 		}
 		
-		//TIMER
+		//TIMER FOR GAME
 		Font e = new Font("Times New Roman", Font.BOLD, 50);
 		g.setFont(e);
 		g.drawString(String.valueOf(time), 45, 50);
