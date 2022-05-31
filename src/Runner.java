@@ -24,9 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-	/*	get an attack that destroys the closest square to the miner
-	 * 	get collision and jumping
-	 */
+//click run
 
 public class Runner extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Miner m = new Miner(100, 150); 
@@ -137,7 +135,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		g.setFont(f);
 		g.setColor(Color.yellow);
 		g.drawString("Crypto Miner", 290, 50);
-		g.drawString(score+"", 750, 50);
+		g.drawString("$" +score+"", 750, 50);
 		
 		//WINNING SCENE
 		if(coinCount == 0) {
