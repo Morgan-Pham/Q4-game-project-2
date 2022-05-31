@@ -15,7 +15,8 @@ work as intended.
 
 Important code:
 **This is the code that displays the coins, miner, and kirby and creates collision between the objects and miner**
-![image](https://user-images.githubusercontent.com/89215911/170732858-22008e92-849a-4b00-9347-f612365e0700.png)
+![image](https://user-images.githubusercontent.com/89215911/171213323-bfbeafa5-fc79-4a42-a93c-9aa25472e0e8.png)
+![image](https://user-images.githubusercontent.com/89215911/171213426-f4f0808b-87f7-4246-999f-d149d1605b06.png)
 
 **This is the code that creates a black trail behind the miner**
 ![image](https://user-images.githubusercontent.com/89215911/171209526-167d61e7-3227-4f38-af50-81b825b099be.png)
@@ -24,10 +25,11 @@ Important code:
 ![image](https://user-images.githubusercontent.com/89215911/171209852-20ceb0b1-80c1-4fd0-a059-e631c9bb8d58.png)
 
 **This is the movement of the miner object**
-![image](https://user-images.githubusercontent.com/89215911/171210246-4f56e5bc-1389-481c-b25c-d9146ff2d053.png)
+![image](https://user-images.githubusercontent.com/89215911/171213622-01965c0a-9339-4ea3-88bc-d5f1a4ef6629.png)
 
 **This is the code that initializes the speed of the miner**
-![image](https://user-images.githubusercontent.com/89215911/171210470-343e7ae2-103b-43a7-905a-623382b01dc2.png)
+![image](https://user-images.githubusercontent.com/89215911/171213792-166a86d5-f539-44e6-b02a-f55f1cc3e52e.png)
+
 
 There has been some left-out code from the "Important Code" section, but those are the pieces of code that are most vital to the 
 funcionality of our program.
