@@ -11,3 +11,8 @@ created and conceived in the week of 3/28/2022
 The current status of the game as of 5/26/2022 is "Completed". The enemy object moves about the screen correctly, the player 
 controlled player is able to move smoothly and coin and kirby collision is pretty accurate. Everything in the game should 
 work as intended.
+
+
+Important code:
+**This is the code that creates and displays the coins, miner, and kirby**
+![image](https://user-images.githubusercontent.com/89215911/170732858-22008e92-849a-4b00-9347-f612365e0700.png)
