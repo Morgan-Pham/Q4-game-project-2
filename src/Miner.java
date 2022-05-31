@@ -42,7 +42,7 @@ public class Miner{
 	}
 
 	public Miner(int x, int y) {
-		img = getImage("miner4.png"); //load the image for Tree
+		img = getImage("miner4.png"); //load the image for Treeing
 		this.x = x;
 		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
