@@ -1,3 +1,12 @@
+/* 
+ * Unironically my fav game so far.
+ * there are no actual bugs or performance issues
+ * the graphics and effects are funny in a good way. very memeable.
+ * the gameplay is fun and easy to understand
+ * 10/10
+ */
+
+
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -25,6 +34,20 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 //click run
+/*1. nice game i like the sound effects
+ * 2. it's a wtf moment and i like it
+ * perfect sound level
+ * um how did i win with $ -2510
+ * nice
+ * i won?
+ * 
+ * Fantastic game,  no flaws
+ * 
+ * 
+ */
+
+
+
 
 public class Runner extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Miner m = new Miner(100, 150); 
@@ -171,7 +194,7 @@ public class Runner extends JPanel implements ActionListener, MouseListener, Key
 		}
 	}
 
-	public static void main(String[] arg) {
+	public static void main(String arg) {
 		Runner r = new Runner();
 	}
 	public Runner() {
